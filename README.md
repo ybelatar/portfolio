@@ -1,7 +1,7 @@
 # TO DO LIST
 
 
-- [ ] Make it deploy
+- [x] Make it deploy
 - [ ] Scaffold basic ui with mock data
 - [ ] Set up a database
 - [ ] Attach database to UI
