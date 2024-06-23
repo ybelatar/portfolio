@@ -6,8 +6,10 @@
 - [x] Tidy up build
 - [x] Set up a database
 - [x] Attach database to UI
-- [ ] Auth
+- [x] Auth
 - [ ] Image upload
+- [ ] "taint" (server-only)
+- [ ] use Next Image component
 - [ ] Error management
 - [ ] Routing
 - [ ] Delete button
