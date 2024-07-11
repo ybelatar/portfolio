@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
@@ -60,8 +59,8 @@ export const FlipWords = ({
           position: "absolute",
         }}
         className={cn(
-          "z-10 inline-block relative text-left text-neutral-900 dark:text-pink-700 px-2",
-          className
+          "relative z-10 inline-block px-2 text-left text-neutral-900 dark:text-pink-700",
+          className,
         )}
         key={currentWord}
       >

@@ -1,43 +1,37 @@
 import Link from "next/link";
-import { db } from "../server/db/index"
+import { db } from "../server/db/index";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { Hero } from "./_components/hero";
-
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
+  const images = await db.query.image.findMany({
+    orderBy: (model, { desc }) => desc(model.id),
+  });
 
-	const images = await db.query.image.findMany({
-		orderBy: (model, { desc }) => desc(model.id),
-	});
-
-	return (
-		<div className="flex flex-wrap justify-center gap-4">
-			{images.map((image) => (
-				<div key={image.id} className="flex w-48 flex-col">
-					<img src={image.url}></img>
-					<p className=" text-pink-500">{image.name}</p>
-				</div>
-			))}
-		</div>
-	);
+  return (
+    <div className="flex flex-wrap justify-center gap-4">
+      {images.map((image) => (
+        <div key={image.id} className="flex w-48 flex-col">
+          <img src={image.url}></img>
+          <p className=" text-pink-500">{image.name}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
-
-
-
 export default async function HomePage() {
-
-	return (
-	<main className="flex min-h-screen flex-col items-center justify-center text-white">
-		<Hero/>
-		{/* <SignedOut>
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center text-white">
+      <Hero />
+      {/* <SignedOut>
 			<div className="w-full h-full text-2xl">Please sign in</div>
 		</SignedOut>
 		<SignedIn>
 			<Images/>
 		</SignedIn> */}
-	</main>
-	);
+    </main>
+  );
 }
